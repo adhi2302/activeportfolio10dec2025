@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adithyan S A — Developer Portfolio (Dark)</title>
+  <meta name="description" content="Adithyan S A — Full-stack & Mobile Application Developer. Flutter, Node, PHP, MySQL." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- tsParticles (kept subtle) -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+
+  <style>
+    :root{
+      --bg:#040812;
+      --panel:#071226;
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --accent-2:#7c3aed;
+      --muted:#9aa6b3;
+      --glass: rgba(255,255,255,0.02);
+      --mono:'Fira Code', monospace;
+      --sans:'Inter',system-ui, -apple-system, "Segoe UI", Roboto;
+      --maxw:1200px;
+      --radius:14px;
+      --shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    /* Full dark page background (removes white borders) */
+    html,body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#02101a 80%);
+      color:#e6eef8;
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* particles behind content */
+    #tsparticles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.6}
+
+    /* page container centered — dark card look */
+    .wrap{
+      max-width:var(--maxw);
+      margin:44px auto;
+      padding:28px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.02);
+      position:relative;
+      z-index:1;
+    }
+
+    /* navigation */
+    header.site-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#02131a}
+    nav.top{display:flex;gap:14px;align-items:center}
+    nav.top a{color:var(--muted);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px}
+    nav.top a.active{background:rgba(255,255,255,0.02);color:var(--accent)}
+    .sticky{position:sticky;top:18px;z-index:10}
+
+    /* layout */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
+    .hero-left h1{font-family:var(--mono);font-size:clamp(28px,4vw,44px);margin:0}
+    .tagline{margin-top:10px;color:var(--muted);font-size:15px}
+    .hero-ctas{margin-top:18px;display:flex;gap:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#02131a;font-weight:700;text-decoration:none;cursor:pointer;border:0;box-shadow:0 6px 18px rgba(6,182,212,0.06)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);box-shadow:none}
+
+    /* photo card */
+    .photo-card{border-radius:12px;padding:14px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.01));display:flex;flex-direction:column;align-items:center}
+    .photo{width:100%;max-width:280px;border-radius:12px;overflow:hidden}
+    .photo img{width:100%;display:block}
+    .photo h3{margin:12px 0 0}
+
+    /* hero meta */
+    .hero-meta{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .badge{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:700;font-size:13px}
+
+    /* sections */
+    section{margin-top:28px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px}
+    .section-head h2{margin:0;font-family:var(--mono);font-size:18px}
+    .muted{color:var(--muted)}
+
+    /* about */
+    .about-grid{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
+    .card{background:linear-gradient(180deg,transparent,rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .about p{color:var(--muted);line-height:1.6}
+
+    /* skills with animated bars */
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill-row{display:flex;align-items:center;margin-bottom:10px}
+    .skill-name{width:140px;font-weight:700}
+    .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;flex:1;margin-left:12px}
+    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 900ms ease}
+
+    /* projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px}
+    .project-card{background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.03);transition:transform 200ms, box-shadow 200ms;cursor:pointer}
+    .project-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(2,6,23,0.6)}
+    .project-card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+    .project-meta{margin-top:8px;color:var(--muted);font-size:13px}
+    .project-footer{display:flex;gap:8px;margin-top:10px}
+
+    /* modal for projects */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);z-index:50}
+    .modal.open{display:flex}
+    .modalCard{width:min(900px,94%);max-height:90vh;overflow:auto;border-radius:12px;background:linear-gradient(180deg,#071226,#06101a);padding:18px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* resume & contact */
+    .resume-actions{margin-top:8px;display:flex;gap:8px}
+    .contact-grid{display:grid;grid-template-columns:1fr 340px;gap:18px}
+    .contact-form{display:flex;flex-direction:column;gap:8px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    input::placeholder,textarea::placeholder{color:var(--muted)}
+
+    /* counters */
+    .counters{display:flex;gap:12px;margin-top:12px}
+    .counter{padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);text-align:center;min-width:90px}
+
+    footer{text-align:center;margin-top:26px;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .photo{max-width:220px}
+    }
+  </style>
+</head>
+<body>
+  <!-- particles -->
+  <div id="tsparticles"></div>
+
+  <div class="wrap">
+    <header class="site-head sticky">
+      <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+          <strong style="font-size:16px">Adithyan S A</strong><br>
+          <small class="muted">Full-stack & Mobile Application Developer</small>
+        </div>
+      </div>
+
+      <nav class="top" aria-label="Primary">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Home">
+      <div class="hero-left">
+        <h1>Adithyan S A</h1>
+        <div class="tagline">Flutter Developer | UI Designer — I build production-grade mobile apps and reliable backends.</div>
+
+        <div class="hero-ctas">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="mailto:your.email@example.com">Contact Me</a>
+        </div>
+
+        <div class="hero-meta" aria-hidden="true">
+          <div class="badge">Open to internships</div>
+          <div class="badge">Available for freelance</div>
+          <div class="badge">Based in Your City</div>
+        </div>
+
+        <div class="counters" aria-hidden="true">
+          <div class="counter"><strong id="projCount">0</strong><div class="muted">Projects</div></div>
+          <div class="counter"><strong id="months">0</strong><div class="muted">Months Coding</div></div>
+          <div class="counter"><strong id="contrib">0</strong><div class="muted">Contribs</div></div>
+        </div>
+      </div>
+
+      <aside class="photo-card" aria-label="Profile">
+        <div class="photo">
+          <img src="https://media.licdn.com/dms/image/v2/D4D35AQGjp04EJNI3Ag/profile-framedphoto-shrink_400_400/B4DZpX3YUxIEAc-/0/1762410727011?e=1765904400&v=beta&t=wrBYGPZlNWPy7Ky5wkUG34mTNqnFO-IeVA7fAZJgvxc" alt="Adithyan S A">
+        </div>
+        <h3>Adithyan S A</h3>
+        <div class="muted">Full-stack & Mobile Application Developer</div>
+        <div style="margin-top:12px">
+          <a class="btn ghost" href="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/cv.pdf" download>Download CV</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head"><h2>About Me</h2><div class="muted">Friendly, concise — what I do and why it matters</div></div>
+
+      <div class="about-grid" style="margin-top:14px">
+        <div class="card about">
+          <p><strong>Who I am</strong><br>I'm a programmer specializing in Flutter apps and full-stack systems. I prioritize clean architecture, readable code, and user-friendly interfaces.</p>
+
+          <p><strong>What I do</strong><br>I design, develop, and ship mobile apps and backend services. I work with Flutter for client apps, Node/PHP for servers, and SQL databases.</p>
+
+          <p><strong>Goals</strong><br>Seeking internships and freelance projects where I can contribute to product quality and learn system design at scale.</p>
+        </div>
+
+        <div>
+          <div class="card">
+            <h4 style="margin-top:0">Skills & Strengths</h4>
+            <div style="margin-top:8px;color:var(--muted)">
+              <strong>Technical:</strong> Flutter, Dart, JavaScript, Node.js, PHP, MySQL, REST APIs, Firebase<br>
+              <strong>Tools:</strong> Git, CI/CD, VS Code, Postman, Docker (basic)<br>
+              <strong>Soft skills:</strong> Teamwork, communication, time management, problem-solving
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <h4 style="margin-top:0">Experience Level</h4>
+            <p class="muted" style="margin:6px 0 0">Practical experience building multiple apps and backend services. Comfortable with end-to-end delivery and debugging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-head"><h2>Projects</h2><div class="muted">Selected work — 3 to 6 strong projects is ideal</div></div>
+
+      <div class="projects-grid">
+        <!-- 1 -->
+        <article class="project-card" data-title="Expense Tracker" data-img="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p1.png" data-desc="Track daily expenses, categories, and charts — offline-capable mobile app." data-tech="Flutter • Firebase • Provider">
+          <img src="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p1.png" alt="Expense Tracker">
+          <div style="margin-top:8px">
+            <strong>Expense Tracker</strong>
+            <div class="project-meta">Track daily expenses, categories, and charts — offline-capable mobile app.</div>
+            <div class="project-footer">
+              <a class="btn" href="https://github.com/adhi2302/Expensetracker" target="_blank">GitHub</a>
+              <a class="btn ghost" href="https://github.com/adhi2302/Expensetracker" target="_blank">Live</a>
+            </div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Tech: Flutter • Firebase</div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="project-card" data-title="House Rental" data-img="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p2.png" data-desc="Fast, SEO-friendly blog template with accessibility-first design." data-tech="HTML • CSS • JS">
+          <img src="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p2.png" alt="Minimal Blog">
+          <div style="margin-top:8px">
+            <strong>House Rental</strong>
+            <div class="project-meta">Fast, SEO-friendly blog template with accessibility-first design.</div>
+            <div class="project-footer">
+              <a class="btn" href="https://github.com/adhi2302/homerental" target="_blank">GitHub</a>
+              <a class="btn ghost" href="https://github.com/adhi2302/homerental" target="_blank">Live</a>
+            </div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Tech: HTML • CSS </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="project-card" data-title="Food Ordering UI" data-img="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p3.png" data-desc="Admin panel for house listings with auth and file uploads." data-tech="PHP • MySQL">
+          <img src="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p3.png" alt="Owner Panel">
+          <div style="margin-top:8px">
+            <strong>Food Ordering UI </strong>
+            <div class="project-meta">Admin panel for house listings with auth and file uploads.</div>
+            <div class="project-footer">
+              <a class="btn" href="https://github.com/adhi2302/VoteX" target="_blank">GitHub</a>
+              <a class="btn ghost" href="https://github.com/adhi2302/VoteX" target="_blank">Demo</a>
+            </div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Tech: Figma</div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="project-card" data-title="Attendance Tracker" data-img="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p4.png" data-desc="Admin panel for house listings with auth and file uploads." data-tech="PHP • MySQL">
+          <img src="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/p4.png" alt="Owner Panel">
+          <div style="margin-top:8px">
+            <strong>Attendance Tracker</strong>
+            <div class="project-meta">An application to record  face and store as an user and identify the user to track the person.</div>
+            <div class="project-footer">
+              <a class="btn" href="https://github.com/adhi2302/Face-Recognition-Based-Attendance-Monitoring-System" target="_blank">GitHub</a>
+              <a class="btn ghost" href="https://github.com/adhi2302/Face-Recognition-Based-Attendance-Monitoring-System" target="_blank">Demo</a>
+            </div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Tech: Python </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+      <div class="skills-grid" style="margin-top:12px">
+        <div>
+          <div style="font-weight:700">Technical Skills</div>
+          <div style="margin-top:10px">
+            <div class="skill-row"><div class="skill-name">Flutter</div><div class="bar"><i data-width="90%"></i></div></div>
+            <div class="skill-row"><div class="skill-name">JavaScript</div><div class="bar"><i data-width="80%"></i></div></div>
+            <div class="skill-row"><div class="skill-name">PHP</div><div class="bar"><i data-width="75%"></i></div></div>
+            <div class="skill-row"><div class="skill-name">SQL</div><div class="bar"><i data-width="75%"></i></div></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-weight:700">Soft Skills</div>
+          <div style="margin-top:10px;color:var(--muted)">
+            <ul style="margin:0;padding-left:18px">
+              <li>Teamwork</li>
+              <li>Communication</li>
+              <li>Time management</li>
+              <li>Problem-solving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="section-head"><h2>Resume</h2><div class="muted">Short highlights and a downloadable CV</div></div>
+
+      <div style="margin-top:12px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+          <div class="card">
+            <div class="resume-brief">Quick Highlights</div>
+            <ul style="margin-top:8px;color:var(--muted)">
+              <li>Built 6 production apps (mobile & web)</li>
+              <li>Experience with auth, offline sync, and REST APIs</li>
+              <li>Comfortable with testing and deployment workflows</li>
+            </ul>
+            <div class="resume-actions">
+              <a class="btn" href="file:///C:/Users/adhit/OneDrive/Documents/portfolio/assets/cv.pdf" download>Download PDF Resume</a>
+              
+            </div>
+          </div>
+        </div>
+
+        <div style="width:320px">
+          <div class="card">
+            <h4 style="margin-top:0">Education</h4>
+            <div class="muted">B.C.A Computer application — Manon Maniam University (2022-2025)</div>
+              <div class="muted">M.C.A Computer application — Manon Maniam University (2025-2027)</div>
+            <h4 style="margin-top:12px">Experience</h4>
+            <div class="muted">Freelance Working</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE / ACHIEVEMENTS -->
+    <section id="timeline">
+      <div class="section-head"><h2>Timeline & Achievements</h2><div class="muted">              </div></div>
+      <div class="timeline" style="margin-top:12px">
+        <div class="tl-item"><strong>2025</strong> — Completed BCA!</div>
+        <div class="tl-item"><strong>2026</strong> — Pursuing MCA </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head"><h2>Contact</h2><div class="muted">Email, social links, or send a message</div></div>
+
+      <div class="contact-grid" style="margin-top:12px">
+        <div>
+          <div class="card">
+            <div style="font-weight:700">Get in touch</div>
+            <p class="muted" style="margin-top:8px">Email: <a href="mailto:Adhithyancoc2302@gmail.com">Adhithyancoc2302@gmail.com</a><br>Location: Kanya Kumari
+            Tamil Nadu.</p>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn ghost" href="https://github.com/adhi2302" target="_blank">GitHub</a>
+              <a class="btn ghost" href="https://www.linkedin.com/in/adithyan-s-a-54b4912a8/" target="_blank">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <form id="contactForm" class="contact-form">
+              <input id="name" placeholder="Your name" required>
+              <input id="email" placeholder="Your email" type="email" required>
+              <textarea id="message" rows="5" placeholder="Your message" required></textarea>
+              <button class="btn" type="submit">Send Message</button>
+            </form>
+            <div id="contactNote" style="margin-top:8px;color:var(--muted);font-size:13px">I'll get back to you as soon as i recieve this mail.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Adithyan S A — Built with ❤️</footer>
+  </div>
+
+  <!-- project modal -->
+  <div id="projModal" class="modal" aria-hidden="true">
+    <div class="modalCard">
+      <button id="closeModal" style="float:right;background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // tsParticles background initialization
+    tsParticles.load('tsparticles', {
+      fullScreen: { enable: true },
+      particles: {
+        number: { value: 55 },
+        color: { value: ['#06b6d4','#7c3aed','#00e5ff'] },
+        links: { enable: true, distance: 120, color: '#0ff', opacity: 0.06 },
+        move: { enable: true, speed: 0.6, outModes: { default: 'bounce' } },
+        size: { value: { min: 1, max: 3 } },
+        opacity: { value: 0.12 }
+      },
+      interactivity: { events: { onHover: { enable: true, mode: 'grab' }, onClick: { enable: true, mode: 'push' } }, modes: { grab: { distance: 140 }, push: { quantity: 3 } } }
+    });
+
+    // Smooth scroll and active link on scroll
+    const links = document.querySelectorAll('nav.top a.nav-link, nav.top a');
+    function smoothScroll(e){
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if(!href.startsWith('#')) return window.open(href, '_self');
+      document.querySelector(href).scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    links.forEach(l => l.addEventListener('click', smoothScroll));
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav.top a');
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id;
+          navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+id));
+        }
+      });
+    }, {threshold:0.45});
+    sections.forEach(s=>obs.observe(s));
+
+    // animate skill bars
+    document.querySelectorAll('.bar > i').forEach(el=>{
+      const w = el.getAttribute('data-width') || '60%';
+      setTimeout(()=> el.style.width = w, 600);
+    });
+
+    // counters
+    function animateCounter(id, end, dur=900){
+      const el = document.getElementById(id);
+      if(!el) return;
+      let v = 0;
+      const step = Math.max(1, Math.floor(end/(dur/16)));
+      const t = setInterval(()=>{ v+=step; if(v>=end){ el.textContent = end; clearInterval(t);} else el.textContent = v; },16);
+    }
+    animateCounter('projCount', 6, 900);
+    animateCounter('months', 18, 1100);
+    animateCounter('contrib', 24, 1100);
+
+    // Projects modal
+    const modal = document.getElementById('projModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+    document.querySelectorAll('.project-card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        const title = card.dataset.title || card.querySelector('strong').textContent;
+        const img = card.dataset.img || card.querySelector('img').src;
+        const desc = card.dataset.desc || card.querySelector('.project-meta').textContent;
+        const tech = card.dataset.tech || '';
+        modalContent.innerHTML = `<h2 style="margin-top:0">${title}</h2><img src="${img}" style="width:100%;border-radius:8px"><p style="margin-top:12px;color:${getComputedStyle(document.body).getPropertyValue('--muted')};">${desc}</p><p style="color:${getComputedStyle(document.body).getPropertyValue('--muted')};font-size:13px"><strong>Tech:</strong> ${tech}</p><div style="margin-top:12px"><a class="btn" href="#" target="_blank">GitHub</a> <a class="btn ghost" href="#" target="_blank">Live</a></div>`;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      });
+    });
+    closeModal.addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');});
+    modal.addEventListener('click', e=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }});
+    window.addEventListener('keydown', e=>{ if(e.key === 'Escape') { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+
+    // Contact form (mailto fallback)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){ alert('Please fill all fields'); return; }
+      const subject = encodeURIComponent('Contact from ' + name);
+      const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>');
+      window.location.href = 'mailto:your.email@example.com?subject=' + subject + '&body=' + body;
+    });
+
+    // Print resume
+    document.getElementById('printResume').addEventListener('click', ()=> window.print());
+
+    // keyboard shortcuts: t toggle theme, p projects, c contact
+    window.addEventListener('keydown', e=>{
+      if(e.key === 't'){ document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark'; }
+      if(e.key === 'p'){ document.querySelector('#projects').scrollIntoView({behavior:'smooth'}); }
+      if(e.key === 'c'){ document.querySelector('#contact').scrollIntoView({behavior:'smooth'}); }
+    });
+
+    // small accessibility: focus outlines when tab key pressed
+    document.addEventListener('keydown', e=>{ if(e.key === 'Tab') document.body.classList.add('showFocus'); });
+  </script>
+</body>
+</html>
