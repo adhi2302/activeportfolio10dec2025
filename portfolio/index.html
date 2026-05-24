@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AdithyanS A — Developer</title>
+  <meta name="description" content="Adithyan S A — Full-stack & Mobile Developer Portfolio">
+  <!-- Favicon & Social Preview Tags -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+  <meta property="og:title" content="Adithyan S A — Developer Portfolio">
+  <meta property="og:description" content="Full-stack & Mobile Developer building Flutter apps, backend systems, and clean interfaces.">
+  <meta property="og:image" content="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/profile.jpg?raw=true">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-text"><span id="loader-perc">0</span>%</div></div>
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+  <div id="scroll-prog"></div>
+
+  <canvas id="c"></canvas>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="#hero" class="logo">A.</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#hero" class="nl active" data-s="hero">Home</a>
+      <a href="#about" class="nl" data-s="about">About</a>
+      <a href="#work" class="nl" data-s="work">Work</a>
+      <a href="#skills" class="nl" data-s="skills">Skills</a>
+      <a href="#contact" class="nl" data-s="contact">Contact</a>
+    </div>
+    <div class="nav-r">
+      <a class="nav-s" href="https://github.com/adhi2302" target="_blank">GitHub</a>
+      <a class="nav-s" href="https://www.linkedin.com/in/adithyan-s-a-54b4912a8/" target="_blank">LinkedIn</a>
+      <button id="theme-btn" class="nav-s" style="background:transparent;cursor:none;">🌙</button>
+      <button id="ham" class="ham"><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="sec sec-hero">
+    <div class="container">
+      <div class="hero-photo-wrap">
+        <img src="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/profile.jpg?raw=true" alt="Adithyan S A" class="hero-photo" id="heroPhoto">
+        <div class="photo-ring"></div>
+      </div>
+      <h1 class="hero-title">
+        <span class="ht-line">Adithyan</span>
+        <span class="ht-line ht-outline">S A</span>
+      </h1>
+      <p class="hero-sub"><span id="typewriter"></span><span class="type-cursor">|</span></p>
+      <p class="hero-desc">I build mobile apps, backend systems, and clean interfaces.<br>Flutter · Supabase · PHP · MySQL</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-black"><span>See My Work</span></a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <a href="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/cv.pdf" class="btn btn-outline" target="_blank" download>Download CV</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><b id="c1">0</b><span>Projects</span></div>
+        <div class="hs"><b id="c2">0</b><span>Months Exp</span></div>
+        <div class="hs"><b id="c3">0</b><span>Tech Stack</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="sec">
+    <div class="container">
+      <h2 class="sec-title">About Me</h2>
+      <div class="grid-2">
+        <div class="card card-wide">
+          <h3>Background</h3>
+          <p>I'm a programmer specializing in Flutter apps and full-stack systems. I prioritize clean architecture, readable code, and user-friendly interfaces. I design, develop, and ship mobile apps and backend services.</p>
+        </div>
+        <div class="card">
+          <h3>Education</h3>
+          <p><strong>B.C.A</strong> — Manonmaniam University, 2022–2025</p>
+          <p><strong>M.C.A</strong> — Manonmaniam University, 2025–2027</p>
+        </div>
+        <div class="card">
+          <h3>What I'm Looking For</h3>
+          <p>Internships and freelance projects where I can contribute to product quality and learn system design at scale.</p>
+        </div>
+        <div class="card card-wide">
+          <h3>Tech Stack</h3>
+          <div class="tags">
+            <span>Flutter</span><span>Dart</span><span>JavaScript</span><span>Node.js</span><span>PHP</span><span>MySQL</span><span>REST APIs</span><span>Firebase</span><span>Git</span><span>Docker</span><span>Figma</span><span>Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="sec">
+    <div class="container">
+      <h2 class="sec-title">Selected Work</h2>
+      <div class="grid-2">
+        <article class="card card-proj">
+          <div class="proj-img"><img src="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/p1.png?raw=true" alt="Expense Tracker" loading="lazy"></div>
+          <div class="proj-info">
+            <span class="proj-num">01</span>
+            <h3>Expense Tracker</h3>
+            <p>Track daily expenses, categories, and charts — offline-capable mobile app.</p>
+            <div class="tags"><span>Flutter</span><span>Firebase</span><span>Provider</span></div>
+            <div class="proj-links">
+              <a class="btn btn-black btn-sm" href="https://github.com/adhi2302/Expensetracker" target="_blank"><span>GitHub</span></a>
+              <a class="btn btn-outline btn-sm" href="https://github.com/adhi2302/Expensetracker" target="_blank">Live</a>
+            </div>
+          </div>
+        </article>
+        <article class="card card-proj">
+          <div class="proj-img"><img src="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/p5.png?raw=true" alt="House Rental" loading="lazy"></div>
+          <div class="proj-info">
+            <span class="proj-num">02</span>
+            <h3>House Rental</h3>
+            <p>Full-stack rental management platform with listings, auth, and booking system.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Supabase</span></div>
+            <div class="proj-links">
+              <a class="btn btn-black btn-sm" href="https://github.com/adhi2302/homerental" target="_blank"><span>GitHub</span></a>
+              <a class="btn btn-outline btn-sm" href="https://github.com/adhi2302/homerental" target="_blank">Live</a>
+            </div>
+          </div>
+        </article>
+        <article class="card card-proj">
+          <div class="proj-img"><img src="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/p3.png?raw=true" alt="Food Ordering UI" loading="lazy"></div>
+          <div class="proj-info">
+            <span class="proj-num">03</span>
+            <h3>Food Ordering UI</h3>
+            <p>Modern food ordering interface with intuitive UX and clean visual design.</p>
+            <div class="tags"><span>Figma</span></div>
+            <div class="proj-links">
+              <a class="btn btn-black btn-sm" href="https://github.com/adhi2302/VoteX" target="_blank"><span>GitHub</span></a>
+              <a class="btn btn-outline btn-sm" href="https://github.com/adhi2302/VoteX" target="_blank">Demo</a>
+            </div>
+          </div>
+        </article>
+        <article class="card card-proj">
+          <div class="proj-img"><img src="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/p4.png?raw=true" alt="Attendance Tracker" loading="lazy"></div>
+          <div class="proj-info">
+            <span class="proj-num">04</span>
+            <h3>Attendance Tracker</h3>
+            <p>Face recognition based attendance monitoring system using Python.</p>
+            <div class="tags"><span>Python</span></div>
+            <div class="proj-links">
+              <a class="btn btn-black btn-sm" href="https://github.com/adhi2302/Face-Recognition-Based-Attendance-Monitoring-System" target="_blank"><span>GitHub</span></a>
+              <a class="btn btn-outline btn-sm" href="https://github.com/adhi2302/Face-Recognition-Based-Attendance-Monitoring-System" target="_blank">Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="sec">
+    <div class="container">
+      <h2 class="sec-title">Skills & Journey</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Technical</h3>
+          <div class="bars">
+            <div class="bar-row"><span>Flutter</span><div class="bar"><i data-w="90"></i></div></div>
+            <div class="bar-row"><span>JavaScript</span><div class="bar"><i data-w="80"></i></div></div>
+            <div class="bar-row"><span>PHP</span><div class="bar"><i data-w="75"></i></div></div>
+            <div class="bar-row"><span>SQL</span><div class="bar"><i data-w="75"></i></div></div>
+            <div class="bar-row"><span>Python</span><div class="bar"><i data-w="65"></i></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Highlights</h3>
+          <ul class="list">
+            <li>Built 6 production apps (mobile & web)</li>
+            <li>Auth, offline sync, REST API experience</li>
+            <li>Testing & deployment workflows</li>
+          </ul>
+          <a class="btn btn-black btn-sm" href="https://github.com/adhi2302/activeportfolio10dec2025/blob/main/portfolio/assets/cv.pdf" download target="_blank" style="margin-top:16px"><span>Download Resume</span></a>
+        </div>
+        <div class="card">
+          <h3>Soft Skills</h3>
+          <div class="tags">
+            <span>Teamwork</span><span>Communication</span><span>Time Management</span><span>Problem Solving</span><span>Self-Learning</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Timeline</h3>
+          <div class="timeline">
+            <div class="tl-item"><b>2022</b><span>Started BCA</span></div>
+            <div class="tl-item"><b>2025</b><span>Completed BCA</span></div>
+            <div class="tl-item tl-now"><b>2026</b><span>Pursuing MCA</span></div>
+          </div>
+        </div>
+        <div class="card card-wide">
+          <h3>GitHub Contributions</h3>
+          <div style="overflow-x:auto; overflow-y:hidden;"><img class="gh-chart" src="https://ghchart.rshah.org/adhi2302" alt="Adithyan's GitHub Chart" style="width:100%; min-width:700px; display:block; margin:0 auto; pointer-events:none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="sec">
+    <div class="container contact-center">
+      <h2 class="sec-title">Let's Talk</h2>
+      <div class="grid-2 contact-grid">
+        <div class="card">
+          <h3>Reach Out</h3>
+          <p>✉ <a href="mailto:Adhithyancoc2302@gmail.com">Adhithyancoc2302@gmail.com</a></p>
+          <p>📍 Kanya Kumari, Tamil Nadu</p>
+          <div class="proj-links" style="margin-top:16px">
+            <a href="https://github.com/adhi2302" target="_blank" class="btn btn-outline btn-sm">GitHub</a>
+            <a href="https://www.linkedin.com/in/adithyan-s-a-54b4912a8/" target="_blank" class="btn btn-outline btn-sm">LinkedIn</a>
+          </div>
+        </div>
+        <div class="card">
+          <form class="form" id="contactForm">
+            <input name="name" placeholder="Name" required>
+            <input name="email" type="email" placeholder="Email" required>
+            <textarea name="message" rows="4" placeholder="Message" required></textarea>
+            <button class="btn btn-black" type="submit"><span>Send</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="foot">© <span id="yr"></span> Adithyan S A</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
